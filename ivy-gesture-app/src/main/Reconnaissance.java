@@ -87,6 +87,8 @@ public class Reconnaissance {
             });
             System.out.println(bestDistance.get());
             if (bestDistance.get() < seuil) {
+            	
+            	System.out.println(bestStroke.get());
                 switch (bestStroke.get()) {
                     case "rectangle":
                         try {
