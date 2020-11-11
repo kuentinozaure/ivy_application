@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/home/etu/eclipse-workspace/ivy-app/jar/ivy.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/etu/Documents/ivy_application/jar/ivy.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

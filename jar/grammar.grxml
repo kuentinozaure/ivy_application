@@ -17,6 +17,22 @@
           <tag>out="yes";</tag></item>
       <item><ruleref uri="#no"/>
       <tag>out="no";</tag></item>
+
+      <item><ruleref uri="#red"/>
+      <tag>out="rouge";</tag></item>
+
+      <item><ruleref uri="#ici"/>
+      <tag>out="ici";</tag></item>
+
+      <item><ruleref uri="#rond"/>
+      <tag>out="rond";</tag></item>
+
+      <item><ruleref uri="#carre"/>
+      <tag>out="carre";</tag></item>
+
+      <item><ruleref uri="#rectangle"/>
+      <tag>out="rectangle";</tag></item>
+
     </one-of>
     <ruleref special="GARBAGE" />
   </rule>
@@ -24,15 +40,55 @@
    <rule id="yes">
     <one-of>
       <item>affirmatif</item>
-      <item>tout à fait</item>
+      <item>tout ï¿½ fait</item>
       <item>oui</item>
     </one-of> 
   </rule> 
   <rule id="no">
     <one-of>
-      <item>négatif</item>
+      <item>nï¿½gatif</item>
       <item>non</item>
       <item>pas question</item>
     </one-of>
   </rule>
+
+  <rule id="red">
+    <one-of>
+      <item>rouge</item>
+      <item>sang</item>
+      <item>rou ge</item>
+      <item>red</item>
+      <item>raide</item>
+      <item>raid</item>
+    </one-of>
+  </rule>
+
+    <rule id="ici">
+    <one-of>
+      <item>ici</item>
+      <item>i si</item>
+    </one-of>
+  </rule>
+
+  <rule id="rond">
+    <one-of>
+      <item>cercle</item>
+      <item>rond</item>
+      <item>arrondi</item>
+    </one-of>
+  </rule>
+
+  <rule id="carre">
+    <one-of>
+      <item>carrer</item>
+      <item>carre</item>
+    </one-of>
+  </rule>
+
+  <rule id="rectangle">
+    <one-of>
+      <item>rectangle</item>
+    </one-of>
+  </rule>
+
 </grammar>
