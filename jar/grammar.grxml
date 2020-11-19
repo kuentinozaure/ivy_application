@@ -1,94 +1,110 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN"
-                "grammar.dtd">
+<!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN" "grammar.dtd">
 <!-- the default grammar language is FR  -->
-<grammar  version="1.0"
-          mode ="voice"
-          xmlns="http://www.w3.org/2001/06/grammar"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.w3.org/2001/06/grammar
-                              grammar.xsd"
-          xml:lang="fr-FR" root="answer" tag-format="semantics/1.0">
-          
-   <rule id="answer" scope="public"> 
-    <ruleref special="GARBAGE" /> 
-    <one-of>
-      <item><ruleref uri="#yes"/>
-          <tag>out="yes";</tag></item>
-      <item><ruleref uri="#no"/>
-      <tag>out="no";</tag></item>
+<grammar version="1.0" mode="voice" xmlns="http://www.w3.org/2001/06/grammar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/06/grammar
+                              grammar.xsd" xml:lang="fr-FR" root="answer" tag-format="semantics/1.0">
 
-      <item><ruleref uri="#red"/>
-      <tag>out="rouge";</tag></item>
+  <rule id="answer" scope="public">
+    <ruleref special="GARBAGE" />
+    <ruleref special="GARBAGE" />
 
-      <item><ruleref uri="#ici"/>
-      <tag>out="ici";</tag></item>
+    <!-- Detection pour la suppression -->
+    <item repeat="0-2">
+      <ruleref special="GARBAGE" />
 
-      <item><ruleref uri="#rond"/>
-      <tag>out="rond";</tag></item>
+      <ruleref uri="#celui" />
+      <item repeat="1-2">
 
-      <item><ruleref uri="#carre"/>
-      <tag>out="carre";</tag></item>
+        <item repeat="0-1">
+          <one-of>
 
-      <item><ruleref uri="#rectangle"/>
-      <tag>out="rectangle";</tag></item>
+            <item>
+              <ruleref uri="#color" />
+            </item>
+          </one-of>
+        </item>
+      </item>
+      <ruleref special="GARBAGE" />
+    </item>
 
-    </one-of>
+    <ruleref special="GARBAGE" />
+
+    <!-- Detection pour l'ajout -->
+    <item repeat="0-2">
+      <ruleref special="GARBAGE" />
+
+      <ruleref uri="#ici" />
+      <item repeat="0-1">
+        <one-of>
+          <item>
+            <ruleref uri="#forme" />
+          </item>
+        </one-of>
+      </item>
+
+      <item repeat="0-1">
+        <one-of>
+
+          <item>
+            <ruleref uri="#color" />
+          </item>
+        </one-of>
+      </item>
+    </item>
+
+    <!-- Detection pour deplacement -->
+    <item repeat="0-2">
+      <ruleref special="GARBAGE" />
+
+      <ruleref uri="#celui" />
+      <item repeat="1-2">
+
+        <item repeat="0-1">
+          <one-of>
+
+            <item>
+              <ruleref uri="#ici" />
+            </item>
+          </one-of>
+        </item>
+      </item>
+      <ruleref special="GARBAGE" />
+    </item>
+
     <ruleref special="GARBAGE" />
   </rule>
-       
-   <rule id="yes">
-    <one-of>
-      <item>affirmatif</item>
-      <item>tout � fait</item>
-      <item>oui</item>
-    </one-of> 
-  </rule> 
-  <rule id="no">
-    <one-of>
-      <item>n�gatif</item>
-      <item>non</item>
-      <item>pas question</item>
-    </one-of>
-  </rule>
 
-  <rule id="red">
+
+  <rule id="color">
     <one-of>
       <item>rouge</item>
-      <item>sang</item>
-      <item>rou ge</item>
-      <item>red</item>
-      <item>raide</item>
-      <item>raid</item>
+      <item>noir</item>
+      <item>jaune</item>
     </one-of>
   </rule>
 
-    <rule id="ici">
+  <rule id="ici">
     <one-of>
       <item>ici</item>
-      <item>i si</item>
+      <item>la</item>
+      <item>a cette position</item>
     </one-of>
   </rule>
 
-  <rule id="rond">
-    <one-of>
-      <item>cercle</item>
-      <item>rond</item>
-      <item>arrondi</item>
-    </one-of>
-  </rule>
-
-  <rule id="carre">
-    <one-of>
-      <item>carrer</item>
-      <item>carre</item>
-    </one-of>
-  </rule>
-
-  <rule id="rectangle">
+  <rule id="forme">
     <one-of>
       <item>rectangle</item>
+      <item>rond</item>
     </one-of>
   </rule>
+
+  <rule id="celui">
+    <one-of>
+      <item>cette objet</item>
+      <item>ce rectangle</item>
+      <item>cette elispe</item>
+    </one-of>
+  </rule>
+
 
 </grammar>
